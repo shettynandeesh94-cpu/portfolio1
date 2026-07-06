@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import * as nodemailer from "nodemailer";
 import { z } from "zod";
 
 // Rate limiting
@@ -37,11 +37,12 @@ export async function POST(req: Request) {
   const { fullName, email, message } = parseResult.data;
 
   // Create Nodemailer transporter for Gmail
+  // Create Nodemailer transporter for Gmail
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PASS,
+      user: process.env.GMAIL_USER ?? "",
+      pass: process.env.GMAIL_PASS ?? "",
     },
   });
 
