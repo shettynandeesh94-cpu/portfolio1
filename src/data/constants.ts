@@ -213,10 +213,33 @@ export type Experience = {
 
 export const EXPERIENCE: Experience[] = [
   {
+    id: 2,
+    startDate: "July 2026",
+    endDate: "Present",
+    title: "Full-Stack Web Developer Intern",
+    company: "Zephyr Technologies & Solutions",
+    description: [
+      "Assisting in the design and development of responsive full-stack web applications using modern web frameworks.",
+      "Collaborating with development teams to build dynamic frontend user interfaces and integrate them with backend API endpoints.",
+      "Writing clean, modular, and optimized code for server-side logic and database operations.",
+      "Participating in version control practices and code review processes to maintain code quality and follow best practices.",
+    ],
+    skills: [
+      SkillNames.REACT,
+      SkillNames.NODEJS,
+      SkillNames.EXPRESS,
+      SkillNames.JS,
+      SkillNames.HTML,
+      SkillNames.CSS,
+      SkillNames.GIT,
+      SkillNames.GITHUB,
+    ],
+  },
+  {
     id: 1,
     startDate: "2024",
     endDate: "2024",
-    title: "Research & Field Survey – Organic Farming",
+    title: "Research & Field Survey - Organic Farming",
     company: "Field Research | Agriculture & Sustainability",
     description: [
       "Conducted on-ground field visits to organic farms to study sustainable agricultural practices and crop management methods.",
@@ -241,12 +264,12 @@ export type Education = {
 export const EDUCATION: Education[] = [
   {
     id: 1,
-    degree: "Bachelor of Technology – Computer Science & Engineering",
+    degree: "Bachelor of Technology - Computer Science & Engineering",
     institution: "N.M.A.M. Institute of Technology",
     startYear: "2023",
     endYear: "2027",
-    grade: "8.10",
-    gradeLabel: "CGPA (Up to 5th Semester)",
+    grade: "8.27",
+    gradeLabel: "CGPA (Up to 6th Semester)",
   },
   {
     id: 2,
@@ -264,6 +287,8 @@ export type Certification = {
   title: string;
   issuer: string;
   year: string;
+  file: string;
+  description: string;
 };
 
 export const CERTIFICATIONS: Certification[] = [
@@ -272,12 +297,27 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
     issuer: "Oracle",
     year: "2025",
+    file: "/certificates/oracle.pdf",
+    description:
+      "Oracle certification covering generative AI concepts, OCI AI services, prompt engineering, large language model use cases, and responsible AI practices.",
   },
   {
     id: 2,
     title: "Full Stack Development",
     issuer: "Udemy",
     year: "2024",
+    file: "/certificates/fullstack1.pdf",
+    description:
+      "Full-stack development certificate focused on building web applications across frontend, backend, database integration, and deployment fundamentals.",
+  },
+  {
+    id: 3,
+    title: "AINNOVATION 2025 AI & Azure Learning Challenges",
+    issuer: "Microsoft Learn",
+    year: "2025",
+    file: "/certificates/microsoft-ai-learning-challenges.pdf",
+    description:
+      "Microsoft Learn achievements for the AINNOVATION 2025 Applied AI, Microsoft AI, and Microsoft Azure Learning Challenges, covering practical AI and Azure learning paths.",
   },
 ];
 

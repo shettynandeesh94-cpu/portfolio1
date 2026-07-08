@@ -12,6 +12,7 @@ import { Button } from "../ui/button";
 import { config } from "@/data/config";
 import OnlineUsers from "../realtime/online-users";
 import { GitHubStarsButton } from "../ui/shadcn-io/github-stars-button";
+import { Volume2, VolumeX } from "lucide-react";
 
 interface HeaderProps {
   loader?: boolean;
@@ -19,7 +20,16 @@ interface HeaderProps {
 
 const Header = ({ loader }: HeaderProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
+  const [isMuted, setIsMuted] = useState<boolean>(true);
   const isHome = usePathname() === "/";
+
+  const toggleMute = () => {
+    const video = document.getElementById("bg-video") as HTMLVideoElement;
+    if (video) {
+      video.muted = !video.muted;
+      setIsMuted(video.muted);
+    }
+  };
   return (
     <motion.header
       className={cn(
@@ -56,7 +66,18 @@ const Header = ({ loader }: HeaderProps) => {
           </Button>
         </Link>
 
-        <FunnyThemeToggle className="w-6 h-6 mr-4 hidden md:flex" />
+        <div className="flex items-center gap-2 mr-2 md:mr-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleMute}
+            className="w-8 h-8 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground cursor-can-hover"
+            aria-label={isMuted ? "Unmute background music" : "Mute background music"}
+          >
+            {isMuted ? <VolumeX className="w-[1.2rem] h-[1.2rem]" /> : <Volume2 className="w-[1.2rem] h-[1.2rem]" />}
+          </Button>
+          <FunnyThemeToggle className="w-6 h-6 hidden md:flex" />
+        </div>
         {isHome && process.env.NEXT_PUBLIC_WS_URL && <OnlineUsers />}
         {config.githubUsername && config.githubRepo && (
           <GitHubStarsButton

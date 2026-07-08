@@ -3,6 +3,7 @@ import { TypographyH3, TypographyP } from "@/components/ui/typography";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { LiveDemoEmbed } from "@/components/live-demo-embed";
 
 const ProjectsLinks = ({ live, repo }: { live?: string; repo?: string }) => {
   return (
@@ -126,11 +127,30 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <span className="text-xs font-bold">B</span>,
   },
+  python: {
+    title: "Python",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">🐍</span>,
+  },
+  streamlit: {
+    title: "Streamlit",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">🎈</span>,
+  },
+  nlp: {
+    title: "NLP",
+    bg: "black",
+    fg: "white",
+    icon: <span className="text-xs font-bold">NLP</span>,
+  },
 };
 
 export type Project = {
   id: string;
   category: string;
+  date: string;
   title: string;
   src: string;
   screenshots: string[];
@@ -144,7 +164,8 @@ const projects: Project[] = [
   {
     id: "realtime-chat",
     category: "Full-Stack Application",
-    title: "Real-Time Chat Application",
+    date: "2025",
+    title: "Chat Analyzer",
     src: "/assets/projects-screenshots/portfolio/landing.png",
     screenshots: [],
     skills: {
@@ -155,54 +176,64 @@ const projects: Project[] = [
         PROJECT_SKILLS.css,
       ],
       backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.mongo,
-        PROJECT_SKILLS.sockerio,
-        PROJECT_SKILLS.jwt,
+        PROJECT_SKILLS.python,
+        PROJECT_SKILLS.streamlit,
+        PROJECT_SKILLS.nlp,
       ],
     },
-    live: "#",
-    github: "#",
+    live: "https://chat-analyzer-1-prom.onrender.com/",
+    github: "https://github.com/shettynandeesh94-cpu/chat-analyzer",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-2xl text-center">
-            A full-stack real-time messaging application built with the MERN
-            stack and WebSocket communication.
+            A full-stack real-time chat analysis tool that extracts deep
+            insights from WhatsApp and messaging exports.
           </TypographyP>
           <TypographyP className="font-mono ">
-            Built a complete real-time chat application using MongoDB,
-            Express.js, React.js, and Node.js (MERN) with WebSocket
-            communication powered by Socket.io. The application supports
-            seamless one-to-one messaging with instant delivery.
+            Built with Python and Streamlit, this chat analyzer parses exported
+            chat files and generates detailed analytics — from message frequency
+            heatmaps to sentiment analysis and word clouds — giving you an
+            unprecedented view into your conversations.
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
 
-          <TypographyH3 className="my-4 mt-8">
-            Real-Time Communication
+          {/* ── LIVE DEMO ── */}
+          <TypographyH3 className="my-4 mt-8 flex items-center gap-2">
+            <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            Live Demo
+          </TypographyH3>
+          <p className="font-mono mb-4 text-sm text-muted-foreground">
+            Try it right here — upload a WhatsApp chat export and explore the
+            analytics instantly.
+          </p>
+          <LiveDemoEmbed
+            url="https://chat-analyzer-1-prom.onrender.com/"
+            title="Chat Analyzer"
+          />
+
+          <TypographyH3 className="my-4 mt-10">
+            Chat Insights & Analytics
           </TypographyH3>
           <p className="font-mono mb-2">
-            Implemented WebSocket-based real-time messaging using Socket.io,
-            enabling instant message delivery between users without page
-            refreshes. The system supports online/offline status indicators so
-            users can see who is currently active.
+            Analyzes exported chat files to surface message volume over time,
+            most-active hours, top senders, emoji usage, word frequency, and
+            more — all visualised as interactive charts.
           </p>
 
           <TypographyH3 className="my-4 mt-8">Key Features</TypographyH3>
           <p className="font-mono mb-2">
-            The application includes typing indicators that show when the other
-            person is composing a message, message timestamps for conversation
-            context, and JWT-based authentication for secure user sessions. The
-            clean, responsive UI ensures a smooth experience across all devices.
+            The application includes NLP-powered sentiment analysis to gauge the
+            tone of conversations, word clouds highlighting recurring themes, an
+            activity heatmap, media-share statistics, and exportable reports —
+            all rendered in a clean, responsive Streamlit interface.
           </p>
 
           <TypographyH3 className="my-4 mt-8">Tech Stack</TypographyH3>
           <p className="font-mono mb-2">
-            MongoDB for data persistence, Express.js and Node.js for the backend
-            API and WebSocket server, React.js for the frontend interface,
-            Socket.io for real-time bidirectional communication, and JWT for
-            secure authentication.
+            Python for data processing and NLP, Streamlit for the interactive
+            web interface, Pandas for data wrangling, Matplotlib / Plotly for
+            visualisations, and deployed live on Render for zero-config hosting.
           </p>
         </div>
       );
@@ -211,6 +242,7 @@ const projects: Project[] = [
   {
     id: "event-management",
     category: "Web Application",
+    date: "Sept 2025",
     title: "College Event Management System",
     src: "/assets/projects-screenshots/portfolio/landing.png",
     screenshots: [],
@@ -225,8 +257,8 @@ const projects: Project[] = [
         PROJECT_SKILLS.mysql,
       ],
     },
-    live: "#",
-    github: "#",
+    live: "https://event-registration-system-a5l5.onrender.com/",
+    github: "https://github.com/shettynandeesh94-cpu/college-event-register",
     get content() {
       return (
         <div>
@@ -242,7 +274,21 @@ const projects: Project[] = [
           </TypographyP>
           <ProjectsLinks live={this.live} repo={this.github} />
 
-          <TypographyH3 className="my-4 mt-8">
+          {/* ── LIVE DEMO ── */}
+          <TypographyH3 className="my-4 mt-8 flex items-center gap-2">
+            <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            Live Demo
+          </TypographyH3>
+          <p className="font-mono mb-4 text-sm text-muted-foreground">
+            Interact with the live event registration system — browse upcoming
+            events and register directly from here.
+          </p>
+          <LiveDemoEmbed
+            url="https://event-registration-system-a5l5.onrender.com/"
+            title="College Event Management"
+          />
+
+          <TypographyH3 className="my-4 mt-10">
             Event Management
           </TypographyH3>
           <p className="font-mono mb-2">
@@ -268,7 +314,8 @@ const projects: Project[] = [
   {
     id: "cinerec",
     category: "Database Project",
-    title: "CineREC – DBMS Project",
+    date: "Jan 2025",
+    title: "CineREC - DBMS Project",
     src: "/assets/projects-screenshots/portfolio/landing.png",
     screenshots: [],
     skills: {
@@ -316,7 +363,7 @@ const projects: Project[] = [
           </TypographyH3>
           <p className="font-mono mb-2">
             The secure admin panel provides full content management capabilities
-            — adding new movies, editing existing entries, managing user reviews,
+            - adding new movies, editing existing entries, managing user reviews,
             and monitoring platform activity. Built with PHP sessions for
             authentication and prepared statements for SQL injection prevention.
           </p>

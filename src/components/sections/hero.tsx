@@ -72,11 +72,14 @@ const HeroSection = () => {
                 <BlurIn delay={1.2}>
                   <p
                     className={cn(
-                      "md:self-start md:mt-4 font-medium text-md text-slate-500 dark:text-zinc-400",
-                      "cursor-default sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
+                      "md:self-start md:mt-4 max-w-xl font-medium text-md text-slate-500 dark:text-zinc-400",
+                      "cursor-default sm:text-xl md:text-xl bg-clip-text "
                     )}
                   >
                     CS Undergraduate · Full-Stack Developer
+                    <span className="mt-4 block text-sm sm:text-base md:text-lg leading-relaxed whitespace-normal">
+                      {config.objective}
+                    </span>
                   </p>
                 </BlurIn>
               </div>

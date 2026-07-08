@@ -1,7 +1,8 @@
 .body {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 20px;
 
   a {
     color: hsl(var(--foreground));
@@ -13,9 +14,9 @@
     margin: 0px;
     display: flex;
     overflow: hidden;
-    font-size: 32px;
-    padding-right: 30px;
-    padding-top: 10px;
+    font-size: 28px;
+    padding-right: 20px;
+    padding-top: 6px;
     font-weight: 800;
   }
 }
@@ -23,11 +24,21 @@
 @media only screen and (min-width: 1000px) {
   .body {
     max-width: 1200px;
-    margin-top: 80px;
+    margin-top: 40px;
+    flex-direction: column;
 
     p {
-      font-size: 5vw;
-      padding-right: 2vw;
+      font-size: 3.2vw;
+      padding-right: 1.5vw;
+      padding-top: 4px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .body {
+    p {
+      font-size: 3.6vw;
     }
   }
 }

@@ -17,6 +17,21 @@ const links: Link[] = [
     thumbnail: '/assets/nav-link-previews/skills.png'
   },
   {
+    title: 'Experience',
+    href: '/#experience',
+    thumbnail: '/assets/nav-link-previews/projects.png'
+  },
+  {
+    title: 'Education',
+    href: '/#education',
+    thumbnail: '/assets/nav-link-previews/skills.png'
+  },
+  {
+    title: 'Certifications',
+    href: '/#certifications',
+    thumbnail: '/assets/nav-link-previews/contact.png'
+  },
+  {
     title: 'Projects',
     href: '/#projects',
     thumbnail: '/assets/nav-link-previews/projects.png'
@@ -31,11 +46,6 @@ const links: Link[] = [
   //   href: '/testimonials',
   //   thumbnail: '/assets/nav-link-previews/testimonials.png'
   // },
-  {
-    title: 'Blogs',
-    href: '/blogs',
-    thumbnail: '/assets/nav-link-previews/blog.png',
-  },
   {
     title: 'Contact',
     href: '/#contact',

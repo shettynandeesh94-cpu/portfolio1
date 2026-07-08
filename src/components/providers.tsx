@@ -7,7 +7,6 @@ import { TooltipProvider } from "./ui/tooltip";
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   return <ThemeProvider
-    attribute="class"
     defaultTheme="dark"
     disableTransitionOnChange
   >
@@ -19,5 +18,5 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
         <Toaster />
       </SocketContextProvider>
     </Preloader>
-  </ThemeProvider>;
+  </ThemeProvider>
 };

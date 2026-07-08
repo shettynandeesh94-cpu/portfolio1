@@ -31,7 +31,14 @@ const ContactSection = () => {
                 href={`mailto:${config.email}`}
                 className="text-gray-200 cursor-can-hover rounded-lg"
               >
-                {config.email.replace(/@/g, "(at)")}
+                {config.email}
+              </a>
+              {" "}or call{" "}
+              <a
+                href={`tel:${config.phone.replace(/\s/g, "")}`}
+                className="text-gray-200 cursor-can-hover rounded-lg"
+              >
+                {config.phone}
               </a>{" "}
               or drop your info here.
             </CardDescription>

@@ -3,6 +3,7 @@ import React from "react";
 import {
   ResponsiveDialog,
   ResponsiveDialogContent,
+  ResponsiveDialogTitle,
   ResponsiveDialogTrigger,
 } from "../ui/responsive-dialog";
 import { FloatingDock } from "../ui/floating-dock";
@@ -31,6 +32,7 @@ const ProjectsSection = () => {
 };
 
 const ProjectCard = ({ project }: { project: Project }) => {
+  const hasLive = project.live && project.live !== "#";
   return (
     <div className="flex items-center justify-center">
       <ResponsiveDialog>
@@ -46,29 +48,46 @@ const ProjectCard = ({ project }: { project: Project }) => {
               alt={project.title}
               bg={`/assets/backgrounds/${project.id}.jpg`}
             />
+
+            {/* Live badge */}
+            {hasLive && (
+              <div className="absolute top-3 right-3 z-20 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm text-green-400 text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1 rounded-full border border-green-400/30">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                Live
+              </div>
+            )}
+
             <div className="absolute w-full h-24 bottom-0 left-0 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none z-10">
               <div className="flex flex-col h-full items-start justify-end p-4">
                 <div className="text-lg text-left [text-shadow:0_1px_4px_rgba(0,0,0,0.6)]">
                   {project.title}
                 </div>
-                <div className="text-xs bg-primary text-primary-foreground rounded-lg w-fit px-2">
-                  {project.category}
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs bg-primary text-primary-foreground rounded-lg w-fit px-2">
+                    {project.category}
+                  </span>
+                  <span className="text-xs bg-background/80 text-foreground rounded-lg w-fit px-2">
+                    {project.date}
+                  </span>
                 </div>
               </div>
             </div>
           </div>
         </ResponsiveDialogTrigger>
 
-        <ResponsiveDialogContent className="md:max-w-4xl md:h-[85vh] md:!flex md:flex-col md:overflow-hidden md:p-0 md:gap-0">
+        <ResponsiveDialogContent className="md:max-w-5xl md:h-[90vh] md:!flex md:flex-col md:overflow-hidden md:p-0 md:gap-0">
           {/* Sticky header */}
           <div className="shrink-0 border-b border-border bg-background/80 backdrop-blur-sm px-8 py-5">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-4 min-w-0">
-                <h4 className="font-display text-xl md:text-2xl font-bold text-foreground tracking-tight truncate">
+                <ResponsiveDialogTitle className="font-display text-xl md:text-2xl font-bold text-foreground tracking-tight truncate">
                   {project.title}
-                </h4>
+                </ResponsiveDialogTitle>
                 <span className="shrink-0 text-[11px] uppercase tracking-widest text-muted-foreground border border-border rounded-full px-3 py-0.5">
                   {project.category}
+                </span>
+                <span className="shrink-0 text-[11px] uppercase tracking-widest text-muted-foreground border border-border rounded-full px-3 py-0.5">
+                  {project.date}
                 </span>
               </div>
               <div className="shrink-0 flex items-center gap-4">
